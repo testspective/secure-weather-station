@@ -17,7 +17,7 @@
 
 A hands-on weather station built to learn IoT security from the hardware up. The point isn't the weather — it's building a small but *realistic* IoT system (**sensor node → gateway → cloud**) that can later be attacked and hardened, layer by layer.
 
-This repository is part of a *learn-in-public* journey documented on [**Testspective**](https://testspective.com/) — notes and experiments from a QA engineer who expand experiences towards IoT security. It is a **learning project**, not a production system or a reference design. Expect rough edges, questions left open, and decisions revisited as I learn more.
+This repository is part of a *learn-in-public* journey documented on [**Testspective**](https://testspective.com/) — notes and experiments from a QA engineer who expanding his experience towards IoT security. It is a **learning project**, not a production system or a reference design. Expect rough edges, questions left open, and decisions revisited as I learn more.
 
 
 ## The idea
@@ -143,6 +143,9 @@ Proposed layout — evolving as the project grows:
 
 ```
 .
+├── experiments/            # small, self-contained learning experiments
+│   ├── exp-1.0-chip-id/    #   each is a standalone PlatformIO project
+│   └── exp-1.1-blink/
 ├── firmware/
 │   ├── sensor-node/        # ESP32 #1 — sensors + ESP-NOW sender
 │   ├── gateway/            # ESP32 #2 — ESP-NOW receiver + MQTT + UART
