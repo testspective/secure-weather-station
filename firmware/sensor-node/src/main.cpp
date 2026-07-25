@@ -12,6 +12,8 @@
 
 #define LDR_PIN 34
 
+#define LM35_PIN 35
+
 Adafruit_BMP280 bmp;
 DHT dht(DHT_PIN, DHT_TYPE);
 
@@ -53,6 +55,9 @@ void loop() {
 
   int lightRaw = analogRead(LDR_PIN);
   Serial.printf("Light (raw ADC):       %d\n", lightRaw);
+
+  int lm35Millivolts = analogReadMilliVolts(LM35_PIN);
+  Serial.printf("Temperature (LM35):    %.2f *C\n", lm35Millivolts / 10.0F);
 
   Serial.println("---");
   delay(2000);

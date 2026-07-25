@@ -8,7 +8,7 @@ Reads onboard sensors and (eventually) sends readings to the gateway over ESP-NO
 - [x] BMP280 — temperature + pressure, over I2C (ported from [experiments/exp-1.1-barometer](../../experiments/exp-1.1-barometer))
 - [x] DHT11 — humidity (+ temperature), ported from [experiments/exp-1.2-dht11](../../experiments/exp-1.2-dht11)
 - [x] Photoresistor — light intensity, ported from [experiments/exp-1.3-photoresistor](../../experiments/exp-1.3-photoresistor)
-- [ ] LM35 — analog temperature (optional)
+- [x] LM35 — analog temperature, 0-100°C range, ported from [experiments/exp-1.4-lm35](../../experiments/exp-1.4-lm35)
 - [ ] ESP-NOW sender
 
 ## Wiring (BMP280)
@@ -38,3 +38,11 @@ Voltage divider, LDR on the high side: `3V3 ──[ LDR ]── GPIO34 ──[ 1
 | LDR leg 1 | 3V3 |
 | LDR leg 2 + 10kΩ leg 1 (divider tap) | GPIO34 |
 | 10kΩ leg 2 | GND |
+
+## Wiring (LM35)
+
+| LM35 pin | ESP32 |
+|---|---|
+| VCC (flat side, pin 1) | 5V / VIN *(not 3V3 — LM35 needs ≥4V)* |
+| GND (pin 3) | GND |
+| OUT (pin 2) | GPIO35 |
