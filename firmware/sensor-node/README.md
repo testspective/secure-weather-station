@@ -7,7 +7,7 @@ Reads onboard sensors and (eventually) sends readings to the gateway over ESP-NO
 
 - [x] BMP280 — temperature + pressure, over I2C (ported from [experiments/exp-1.1-barometer](../../experiments/exp-1.1-barometer))
 - [x] DHT11 — humidity (+ temperature), ported from [experiments/exp-1.2-dht11](../../experiments/exp-1.2-dht11)
-- [ ] Photoresistor — light intensity
+- [x] Photoresistor — light intensity, ported from [experiments/exp-1.3-photoresistor](../../experiments/exp-1.3-photoresistor)
 - [ ] LM35 — analog temperature (optional)
 - [ ] ESP-NOW sender
 
@@ -28,3 +28,13 @@ Reads onboard sensors and (eventually) sends readings to the gateway over ESP-NO
 | DATA | GPIO4 *(bridge a 4.7kΩ resistor between VCC and DATA — pull-up required for a bare sensor)* |
 | NC | not connected |
 | GND | GND |
+
+## Wiring (Photoresistor)
+
+Voltage divider, LDR on the high side: `3V3 ──[ LDR ]── GPIO34 ──[ 10kΩ ]── GND`
+
+| Signal | ESP32 |
+|---|---|
+| LDR leg 1 | 3V3 |
+| LDR leg 2 + 10kΩ leg 1 (divider tap) | GPIO34 |
+| 10kΩ leg 2 | GND |

@@ -10,6 +10,8 @@
 #define DHT_PIN 4
 #define DHT_TYPE DHT11
 
+#define LDR_PIN 34
+
 Adafruit_BMP280 bmp;
 DHT dht(DHT_PIN, DHT_TYPE);
 
@@ -48,6 +50,9 @@ void loop() {
     Serial.printf("Temperature (DHT11):  %.2f *C\n", dhtTemp);
     Serial.printf("Humidity (DHT11):     %.2f %%\n", dhtHumidity);
   }
+
+  int lightRaw = analogRead(LDR_PIN);
+  Serial.printf("Light (raw ADC):       %d\n", lightRaw);
 
   Serial.println("---");
   delay(2000);
