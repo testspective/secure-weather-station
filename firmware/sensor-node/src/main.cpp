@@ -1,12 +1,17 @@
 #include <Arduino.h>
 #include <Wire.h>
 #include <Adafruit_BMP280.h>
+#include <DHT.h>
 
 #define I2C_SDA 21
 #define I2C_SCL 22
 #define SEALEVEL_HPA 1013.25
 
+#define DHT_PIN 4
+#define DHT_TYPE DHT11
+
 Adafruit_BMP280 bmp;
+DHT dht(DHT_PIN, DHT_TYPE);
 
 void setup() {
   Serial.begin(115200);
@@ -26,12 +31,24 @@ void setup() {
                    Adafruit_BMP280::SAMPLING_X16,
                    Adafruit_BMP280::FILTER_X16,
                    Adafruit_BMP280::STANDBY_MS_500);
+
+  dht.begin();
 }
 
 void loop() {
-  Serial.printf("Temperature: %.2f *C\n", bmp.readTemperature());
-  Serial.printf("Pressure:    %.2f hPa\n", bmp.readPressure() / 100.0F);
-  Serial.printf("Altitude:    %.2f m\n", bmp.readAltitude(SEALEVEL_HPA));
+  Serial.printf("Temperature (BMP280): %.2f *C\n", bmp.readTemperature());
+  Serial.printf("Pressure:              %.2f hPa\n", bmp.readPressure() / 100.0F);
+  Serial.printf("Altitude:              %.2f m\n", bmp.readAltitude(SEALEVEL_HPA));
+
+  float dhtTemp = dht.readTemperature();
+  float dhtHumidity = dht.readHumidity();
+  if (isnan(dhtTemp) || isnan(dhtHumidity)) {
+    Serial.println("Failed to read from DHT11 sensor!");
+  } else {
+    Serial.printf("Temperature (DHT11):  %.2f *C\n", dhtTemp);
+    Serial.printf("Humidity (DHT11):     %.2f %%\n", dhtHumidity);
+  }
+
   Serial.println("---");
   delay(2000);
 }
