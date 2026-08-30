@@ -11,6 +11,10 @@ Reads onboard sensors and (eventually) sends readings to the gateway over ESP-NO
 - [x] LM35 — analog temperature, 0-100°C range, ported from [experiments/exp-1.4-lm35](../../experiments/exp-1.4-lm35)
 - [ ] ESP-NOW sender
 
+## Schematic
+
+A combined KiCad schematic showing all four sensors wired to the ESP32 on one sheet: open [hardware/wiring/sensor-node.kicad_pro](../../hardware/wiring/sensor-node.kicad_pro) in [KiCad](https://kicad.org) (free). It was authored without opening it in KiCad to render/verify, so give it a first-open check before relying on it. The per-sensor tables below remain the quick step-by-step reference and are the source of truth the schematic was built from.
+
 ## Wiring (BMP280)
 
 | BMP280 | ESP32 |
