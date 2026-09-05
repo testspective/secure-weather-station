@@ -4,7 +4,7 @@
 			"path": "."
 		},
 		{
-			"path": "firmware/sensor-node"
+			"path": "experiments/exp-1.0-chip-id"
 		}
 	],
 	"settings": {}

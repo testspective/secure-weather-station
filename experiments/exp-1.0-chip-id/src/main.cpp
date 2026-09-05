@@ -1,9 +1,19 @@
 #include <Arduino.h>
 
-#define LED_PIN 2
+#define LED_FAST_PIN 2  // GPIO2 - toggles every FAST_INTERVAL_MS
+#define LED_SLOW_PIN 4  // GPIO4 - toggles every SLOW_INTERVAL_MS (2x slower)
+
+const unsigned long FAST_INTERVAL_MS = 250;
+const unsigned long SLOW_INTERVAL_MS = 500;
+
+unsigned long lastFastToggle = 0;
+unsigned long lastSlowToggle = 0;
+bool fastState = LOW;
+bool slowState = LOW;
 
 void setup() {
-  pinMode(LED_PIN, OUTPUT);
+  pinMode(LED_FAST_PIN, OUTPUT);
+  pinMode(LED_SLOW_PIN, OUTPUT);
   Serial.begin(115200);
   delay(1000);
 
@@ -18,9 +28,18 @@ void setup() {
 }
 
 void loop() {
-  digitalWrite(LED_PIN, HIGH);
-  delay(500);
-  digitalWrite(LED_PIN, LOW);
-  delay(500);
+  unsigned long now = millis();
+
+  if (now - lastFastToggle >= FAST_INTERVAL_MS) {
+    lastFastToggle = now;
+    fastState = !fastState;
+    digitalWrite(LED_FAST_PIN, fastState);
+  }
+
+  if (now - lastSlowToggle >= SLOW_INTERVAL_MS) {
+    lastSlowToggle = now;
+    slowState = !slowState;
+    digitalWrite(LED_SLOW_PIN, slowState);
+  }
 }
 
