@@ -6,8 +6,8 @@
 	(paper "A5")
 	(title_block
 		(title "secure-weather-station")
-		(date "2026-09-05")
-		(rev "1.0")
+		(date "2026-09-07")
+		(rev "1.1")
 		(company "TESTSPECTIVE")
 		(comment 1 "Sensor Node")
 	)
@@ -670,6 +670,9 @@
 			(embedded_fonts no)
 		)
 		(symbol "Local:LM35"
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
 				(offset 0.254)
 			)
@@ -1008,16 +1011,6 @@
 	)
 	(wire
 		(pts
-			(xy 41.91 36.83) (xy 71.12 36.83)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3d1b2bfd-548b-4d76-8a81-9c398151dee7")
-	)
-	(wire
-		(pts
 			(xy 68.58 85.09) (xy 60.96 85.09)
 		)
 		(stroke
@@ -1065,6 +1058,16 @@
 			(type default)
 		)
 		(uuid "595f7cbe-2a0e-4fbd-a886-e0ccff2f2981")
+	)
+	(wire
+		(pts
+			(xy 71.12 46.99) (xy 71.12 54.61)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5d2bc2a2-95f6-403a-894a-6b237f0d0cfd")
 	)
 	(wire
 		(pts
@@ -1188,16 +1191,6 @@
 	)
 	(wire
 		(pts
-			(xy 71.12 36.83) (xy 71.12 54.61)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f0790885-0275-4835-a13f-7e1ea5521fa6")
-	)
-	(wire
-		(pts
 			(xy 110.65 33.02) (xy 103.03 33.02)
 		)
 		(stroke
@@ -1205,6 +1198,16 @@
 			(type default)
 		)
 		(uuid "f4784256-b637-4601-b14a-65f731c686ad")
+	)
+	(wire
+		(pts
+			(xy 41.91 46.99) (xy 71.12 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f8f159c5-4133-4653-bc9a-163a76144ec8")
 	)
 	(label "GPIO22"
 		(at 41.91 52.07 0)
