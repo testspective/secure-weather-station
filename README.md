@@ -158,7 +158,9 @@ Proposed layout — evolving as the project grows:
 │   └── bom.md              # detailed bill of materials
 ├── docs/
 │   ├── architecture.md     # data flow, module responsibilities
-│   └── security-notes.md   # attack-surface observations per layer
+│   ├── security-notes.md   # attack-surface observations per layer
+│   ├── conventional_commits.md  # commit message convention
+│   └── platformio.md       # pio CLI setup & daily commands (build/upload/monitor)
 ├── LICENSE
 └── README.md
 ```

@@ -40,24 +40,24 @@ void setup() {
 }
 
 void loop() {
-  Serial.printf("Temperature (BMP280): %.2f *C\n", bmp.readTemperature());
-  Serial.printf("Pressure:              %.2f hPa\n", bmp.readPressure() / 100.0F);
-  Serial.printf("Altitude:              %.2f m\n", bmp.readAltitude(SEALEVEL_HPA));
+  Serial.printf("%-23s%.2f *C\n", "Temperature (BMP280):", bmp.readTemperature());
+  Serial.printf("%-23s%.2f hPa\n", "Pressure:", bmp.readPressure() / 100.0F);
+  Serial.printf("%-23s%.2f m\n", "Altitude:", bmp.readAltitude(SEALEVEL_HPA));
 
   float dhtTemp = dht.readTemperature();
   float dhtHumidity = dht.readHumidity();
   if (isnan(dhtTemp) || isnan(dhtHumidity)) {
     Serial.println("Failed to read from DHT11 sensor!");
   } else {
-    Serial.printf("Temperature (DHT11):  %.2f *C\n", dhtTemp);
-    Serial.printf("Humidity (DHT11):     %.2f %%\n", dhtHumidity);
+    Serial.printf("%-23s%.2f *C\n", "Temperature (DHT11):", dhtTemp);
+    Serial.printf("%-23s%.2f %%\n", "Humidity (DHT11):", dhtHumidity);
   }
 
   int lightRaw = analogRead(LDR_PIN);
-  Serial.printf("Light (raw ADC):       %d\n", lightRaw);
+  Serial.printf("%-23s%d\n", "Light (raw ADC):", lightRaw);
 
   int lm35Millivolts = analogReadMilliVolts(LM35_PIN);
-  Serial.printf("Temperature (LM35):    %.2f *C\n", lm35Millivolts / 10.0F);
+  Serial.printf("%-23s%.2f *C\n", "Temperature (LM35):", lm35Millivolts / 10.0F);
 
   Serial.println("---");
   delay(2000);

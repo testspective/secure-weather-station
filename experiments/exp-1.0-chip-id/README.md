@@ -26,29 +26,13 @@ The firmware ([src/main.cpp](src/main.cpp)) demonstrates three things:
 
 ## Prerequisites
 
-`pio` must be available in your terminal's PATH. Installing the VS Code
-**PlatformIO IDE** extension installs PlatformIO Core to
-`~/.platformio/penv/Scripts` (Windows) / `~/.platformio/penv/bin` (macOS/Linux),
-but does **not** add it to a regular terminal's PATH - it only works inside
-VS Code's dedicated "PlatformIO Core CLI" terminal (sidebar icon > PIO Home,
-or Command Palette > "PlatformIO: New Terminal").
-
-If you get `pio: command not found` / `'pio' is not recognized` in a plain
-terminal, either:
-
-- Use VS Code's PlatformIO CLI terminal (no setup needed), or
-- Add the PlatformIO `Scripts`/`bin` folder to your PATH once, permanently:
-  ```powershell
-  # Windows PowerShell, current user
-  [Environment]::SetEnvironmentVariable('Path', [Environment]::GetEnvironmentVariable('Path','User') + ';' + "$HOME\.platformio\penv\Scripts", 'User')
-  ```
-  ```sh
-  # macOS/Linux (bash/zsh), add to your shell profile
-  export PATH="$HOME/.platformio/penv/bin:$PATH"
-  ```
-  Restart your terminal afterwards and confirm with `pio --version`.
+See [docs/platformio.md](../../docs/platformio.md) for PATH setup if `pio`
+isn't recognized in your terminal.
 
 ## Run
+
+See [docs/platformio.md](../../docs/platformio.md) for the full command
+reference.
 
 ```
 pio run -t upload
