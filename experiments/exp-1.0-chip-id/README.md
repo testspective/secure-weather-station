@@ -5,12 +5,10 @@ upload and serial monitor all work, and that GPIO output drives an LED.
 
 The firmware ([src/main.cpp](src/main.cpp)) demonstrates three things:
 
-1. **Onboard LED blink** - the DevKit's built-in LED on GPIO2 blinks with a
-   250 ms half-period (500 ms full on/off cycle).
+1. **Onboard LED blink** - the DevKit's built-in LED on GPIO2 blinks at 2 Hz.
 2. **External LED blink** - an added green LED on GPIO4 (anode) with a 330 ohm
-   series resistor on the cathode side to GND. It blinks at half the speed,
-   500 ms half-period. GPIO2 therefore blinks twice as fast as GPIO4. Both run on
-   non-blocking `millis()` timers.
+   series resistor on the cathode side to GND. It blinks at 1 Hz, so GPIO2
+   blinks twice as fast as GPIO4. Both run on non-blocking `millis()` timers.
 3. **Chip info over serial** - on boot, `setup()` prints chip model, silicon
    revision, core count, CPU frequency, flash size, eFuse MAC and SDK version to
    the serial monitor at 115200 baud.
